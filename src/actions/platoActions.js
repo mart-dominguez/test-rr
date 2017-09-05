@@ -10,9 +10,9 @@ export const EDITAR_PLATO = 'EDITAR_PLATO'
  */
 
 export function addPlato(datoPlato) {
-  return { type: ADD_TODO, text }
+  return { type: ADD_PLATO, payload:datoPlato }
 }
 
-export function editPlato(datoPlato) {
-  return { type: EDITAR_PLATO, datoPlato }
+export function editPlato(indicePlato) {
+  return { type: EDITAR_PLATO, indice:indicePlato }
 }

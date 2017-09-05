@@ -5,4 +5,4 @@ const rootReducer = combineReducers({
   abmPlato
 })
 
-export default rootReducer
+export default rootReducer;
