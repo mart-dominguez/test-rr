@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux'
 import abmPlato from './platoReducers'
+import platoSeleccionado from './platoSeleccionado'
 
 const rootReducer = combineReducers({
-  abmPlato
+  abmPlato,
+  platoSeleccionado
 })
 
 export default rootReducer;

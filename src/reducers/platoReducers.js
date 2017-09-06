@@ -1,4 +1,4 @@
-import {ADD_PLATO,EDITAR_PLATO} from '../actions/platoActions.js';
+import {ADD_PLATO,EDITAR_PLATO,ACTUALIZAR_PLATO,ACTUALIZAR_ATRIBUTO_PLATO} from '../actions/platoActions.js';
 
 const abmPlato = (state = [], action) => {
     switch (action.type) {
@@ -8,9 +8,16 @@ const abmPlato = (state = [], action) => {
           ...state,
           action.payload
         ]
-      case EDITAR_PLATO:
-        return state.filter((unPlato,indice) =>{
-            indice === action.indice
+      case ACTUALIZAR_ATRIBUTO_PLATO:
+        if(action.indice<0) return state;
+        return state.map((unPlato,indice) =>{
+          if(indice === action.indice) return unPlato[action.atributo]=action.valor;
+          else return unPlato;
+        });
+      case ACTUALIZAR_PLATO:
+        return state.map((unPlato,indice) =>{
+            if(indice === action.indice) return action.payload;
+            else return unPlato;
         });
       default:
         console.log("DEFAULT");

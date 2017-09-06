@@ -7,9 +7,9 @@ const mapStateToProps = state =>    (
         listadoPlatos: state.abmPlato    
     }
 )
-//const mapDispatchToProps = dispatch =>    ({        
-//    onPlatoClick: id => {dispatch(editPlato(id)) }
-//    }
-//)
-//export const Platos = connect(    mapStateToProps,    mapDispatchToProps)(ListaPlato)
-export const Platos = connect(    mapStateToProps)(ListaPlato)
+const mapDispatchToProps = dispatch =>    ({        
+    onPlatoClick: id => {dispatch(editPlato(id)) }
+    }
+)
+export const Platos = connect(    mapStateToProps,    mapDispatchToProps)(ListaPlato)
+//export const Platos = connect(    mapStateToProps)(ListaPlato)

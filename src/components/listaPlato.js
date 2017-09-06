@@ -1,7 +1,6 @@
 import React  from 'react';
 
-//export const ListaPlato = ({listadoPlatos,onPlatoClick}) => {
-export const ListaPlato = ({listadoPlatos}) => {
+export const ListaPlato = ({listadoPlatos,onPlatoClick}) => {
     let estilo = {
         margin: '4px'
     }
@@ -9,6 +8,7 @@ export const ListaPlato = ({listadoPlatos}) => {
         <li key={indice}>
             <span style={estilo}>{unPlato.nombre}</span>
             <span style={estilo}>${unPlato.precio}</span>
+            <button onClick={onPlatoClick(indice)} >Editar</button>
         </li>
     );
     console.log(listaPlatosAux);
