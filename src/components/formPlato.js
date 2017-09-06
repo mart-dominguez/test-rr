@@ -2,23 +2,16 @@ import React, {PropTypes}  from 'react';
 import { addPlato } from '../actions/platoActions'
 
 export const FormPlato = ({platoSeleccionado,indice,onCreatePlato,onUpdatePlato,onChangeProperty}) => {
+    console.log(platoSeleccionado);
     let _nombrePlato, _precioPlato;
-    let nombreAux,precioAux;
-    if(indice>=0){
-        nombreAux=platoSeleccionado.nombre;
-        precioAux=platoSeleccionado.precio;    
-    }else{
-        nombreAux= 'abc';
-        precioAux= 0.0;    
+
+    const handleEventNombre = e =>{
+        console.log(e);
+        onChangeProperty("nombre",e.target.value,indice)
     }
 
-    const handleEvent = e =>{
-        console.log(onCreatePlato);
-        console.log(onUpdatePlato);
-        console.log(onChangeProperty);
-        console.log(e.value);
-        console.log(platoSeleccionado);
-        onChangeProperty("nombre",e.value,indice)
+    const handleEventPrecio = e =>{
+        onChangeProperty("precio",e.target.value,indice)
     }
 
     const submit = e => {        
@@ -40,16 +33,16 @@ return(
             <div>Nombre:<input  type="text" 
                                 id="nombrePlato" 
                                 value={platoSeleccionado.nombre}
-                                onChange={e =>handleEvent(e) }
-                                ref={input => _nombrePlato = input}
+                                onChange={e =>handleEventNombre(e) }
+                             //   ref={input => _nombrePlato = input}
                                 />
             </div>
             <div>Precio:
                 <input type="text" 
                         id="precio"
-                        value={precioAux}
-                  //      onChange={(e) => precioAux=e.target.value}
-                    //    ref={input => _precioPlato = input}
+                        value={platoSeleccionado.precio}
+                        onChange={e =>handleEventPrecio(e) }
+                        ref={input => _precioPlato = input}
                         />
             </div>
             <button  type="submit" >Alta Plato</button>

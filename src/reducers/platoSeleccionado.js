@@ -4,15 +4,18 @@ const platoSeleccionado = (state = {indice:-1,plato:{nombre:'',precio:0}}, actio
     switch (action.type) {     
       case ACTUALIZAR_PLATO:
         return Object.assign({}, state, {
-          indice:action.indice
+          indice:action.indicePlato
         })
       case ACTUALIZAR_ATRIBUTO_PLATO:
-        let newEstado = Object.assign({}, state, {indice:action.indice});
+        console.log(action);        
+        let newEstado = Object.assign({}, state, {indice:action.indicePlato});
         newEstado.plato[action.atributo]=action.valor;
+        console.log(newEstado);
         return newEstado;
       case EDITAR_PLATO:
+        return Object.assign({}, state, {indice:-1});
       case ADD_PLATO:
-        return -1;
+        return Object.assign({}, state, {indice:-1});
       default:
         return state
     }

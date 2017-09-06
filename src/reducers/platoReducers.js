@@ -8,12 +8,6 @@ const abmPlato = (state = [], action) => {
           ...state,
           action.payload
         ]
-      case ACTUALIZAR_ATRIBUTO_PLATO:
-        if(action.indice<0) return state;
-        return state.map((unPlato,indice) =>{
-          if(indice === action.indice) return unPlato[action.atributo]=action.valor;
-          else return unPlato;
-        });
       case ACTUALIZAR_PLATO:
         return state.map((unPlato,indice) =>{
             if(indice === action.indice) return action.payload;

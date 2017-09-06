@@ -3,13 +3,24 @@ import { connect } from 'react-redux'
 import { addPlato,actualizarPlato,actualizarCampo } from '../actions/platoActions'
 
 const getIndice = (estado) => {
-    console.log(estado);
-    return estado.indicePlato;
+    console.log(estado.platoSeleccionado.indice);
+    return estado.platoSeleccionado.indice;
+}
+
+const getPlatoInicia = (estado) => {
+    console.log(estado.platoSeleccionado.indice);
+    if(estado.platoSeleccionado.indice>=0)
+        return estado.abmPlato[estado.platoSeleccionado.indicePlato];
+    else {
+        console.log(estado.platoSeleccionado.plato);
+            return estado.platoSeleccionado.plato;
+    }
+        
 }
 
 const mapStateToProps = state =>    (
     {        
-        platoSeleccionado: state.indicePlato>=0? state.abmPlato[state.indicePlato] : state.platoActual,
+        platoSeleccionado:getPlatoInicia(state),
         indice:getIndice(state)
     }
 )
