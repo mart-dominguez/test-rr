@@ -22,7 +22,3 @@ export function editPlato(indicePlato) {
 export function actualizarPlato(datoPlato,pIndice) {
   return { type: ACTUALIZAR_PLATO, payload:datoPlato,indicePlato:pIndice }
 }
-
-export function actualizarCampo(campo,valor,indice) {
-  return { type: ACTUALIZAR_ATRIBUTO_PLATO, atributo:campo,valor:valor,indicePlato:indice }
-}

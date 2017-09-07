@@ -1,19 +1,10 @@
 import React, {PropTypes}  from 'react';
 import { addPlato } from '../actions/platoActions'
 
-export const FormPlato = ({platoSeleccionado,indice,onCreatePlato,onUpdatePlato,onChangeProperty}) => {
+export const FormPlato = ({platoSeleccionado,indice,onCreatePlato,onUpdatePlato}) => {
     console.log(platoSeleccionado);
     let _nombrePlato, _precioPlato;
-
-    const handleEventNombre = e =>{
-        console.log(e);
-        onChangeProperty("nombre",e.target.value,indice)
-    }
-
-    const handleEventPrecio = e =>{
-        onChangeProperty("precio",e.target.value,indice)
-    }
-
+    this.refs
     const submit = e => {        
         e.preventDefault();
         if(indice<0){
@@ -30,18 +21,17 @@ return(
     <div>
         <h1>Gestion de Platos</h1>
         <form onSubmit={submit}>
-            <div>Nombre:<input  type="text" 
+           <InputForm  />
+           <div>Nombre:<input  type="text" 
                                 id="nombrePlato" 
-                                value={platoSeleccionado.nombre}
-                                onChange={e =>handleEventNombre(e) }
-                             //   ref={input => _nombrePlato = input}
+                                defaultValue={platoSeleccionado.nombre}
+                                ref={input => _nombrePlato = input}
                                 />
             </div>
             <div>Precio:
                 <input type="text" 
                         id="precio"
-                        value={platoSeleccionado.precio}
-                        onChange={e =>handleEventPrecio(e) }
+                        defaultValue={platoSeleccionado.precio}
                         ref={input => _precioPlato = input}
                         />
             </div>

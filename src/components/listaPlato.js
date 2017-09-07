@@ -8,8 +8,8 @@ export const ListaPlato = ({listadoPlatos,onPlatoClick}) => {
         <li key={indice}>
             <span style={estilo}>{unPlato.nombre}</span>
             <span style={estilo}>${unPlato.precio}</span>
-            <button onClick={onPlatoClick(indice)} >Editar</button>
-        </li>
+            <button onClick={() => onPlatoClick(indice)}>Editar</button>
+            </li>
     );
     console.log(listaPlatosAux);
 
@@ -22,5 +22,3 @@ export const ListaPlato = ({listadoPlatos,onPlatoClick}) => {
 
 
 export default ListaPlato
-
-////            <button onClick={() => onPlatoClick(indice)}>Editar</button>

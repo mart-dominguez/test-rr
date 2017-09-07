@@ -10,7 +10,7 @@ const getIndice = (estado) => {
 const getPlatoInicia = (estado) => {
     console.log(estado.platoSeleccionado.indice);
     if(estado.platoSeleccionado.indice>=0)
-        return estado.abmPlato[estado.platoSeleccionado.indicePlato];
+        return estado.abmPlato[estado.platoSeleccionado.indice];
     else {
         console.log(estado.platoSeleccionado.plato);
             return estado.platoSeleccionado.plato;
@@ -28,8 +28,7 @@ const mapStateToProps = state =>    (
 const mapDispatchToProps = dispatch =>    (
     {
         onCreatePlato: (nombrePlato,precioPlato) => {dispatch(addPlato({nombre:nombrePlato,precio:precioPlato})) },        
-        onUpdatePlato: (nombrePlato,precioPlato,indice) => {dispatch(actualizarPlato({nombre:nombrePlato,precio:precioPlato},indice)) },
-        onChangeProperty: (propiedad,valor,indice) => {dispatch(actualizarCampo(propiedad,valor,indice)) }        
+        onUpdatePlato: (nombrePlato,precioPlato,indice) => {dispatch(actualizarPlato({nombre:nombrePlato,precio:precioPlato},indice)) }
    }
 )
 export const GestorPlatos = connect(    mapStateToProps,    mapDispatchToProps)(FormPlato)
